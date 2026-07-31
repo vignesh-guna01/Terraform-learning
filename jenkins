@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    
+    environment {
+    ENV = "${env. BRANCH_NAME}"
+    TF_WORKDIR = "environments/Dev"
+    }
+
+    stages{
+        stage ('Checkout'){
+            steps{
+                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/vignesh-guna01/Terraform-learning.git'
+            }
+        }
+
+        stage ('Terraform Init'){
+            step{
+                dir("${TF_WORKDIR}"){
+                    sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            step{
+                dir("${TF_WORKDIR}"){
+                    sh 'terraform plan -out=tfplan'
+                    sh 'terraform show -no-color tfplan > tfplan.txt'
+                    sh 'cat tfplan.txt'
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps{
+                dir("${TF_WORKDIR}"){
+                    sh 'terraform apply tfplan'
+                }
+            }
+        }
+    }    
+}
