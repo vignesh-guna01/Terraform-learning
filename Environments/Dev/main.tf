@@ -1,7 +1,7 @@
 module vpc {
   source  = "../../modules/VPC"
   vpc_cidr  = "10.0.0.0/16"
-  subnet_cidr = "10.1.0.0/24"
+  subnet_cidr = "10.0.1.0/24"
   az_subnet   = "${var.aws_region}a"
   tags        = "Dev"
 }
