@@ -17,6 +17,6 @@ resource "aws_subnet" "subnet_myvpc" {
 }
 
 output subnet_id {
-  value       = "aws_subnet.subnet_myvpc.id"
+  value       = aws_subnet.subnet_myvpc.id
   description = "my subnet ID"
 }
