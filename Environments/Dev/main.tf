@@ -4,7 +4,6 @@ module vpc {
   subnet_cidr = "10.1.0.0/24"
   az_subnet   = "${var.aws_region}a"
   tags        = "Dev"
-  param   = value
 }
 
 
