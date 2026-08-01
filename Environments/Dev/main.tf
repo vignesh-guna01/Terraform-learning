@@ -12,6 +12,6 @@ module ec2 {
   ami_id         = "ami-01edba92f9036f76e"
   instance_type  = "t2.micro"
   subnet_id      = module.vpc.subnet_id
-  instance_count = 1
+  instance_count = 2
   tags           = "Dev"
 }
