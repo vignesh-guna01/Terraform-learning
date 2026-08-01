@@ -1,3 +1,4 @@
+/*
 module vpc {
   source  = "../../modules/VPC"
   vpc_cidr  = "10.0.0.0/16"
@@ -15,3 +16,4 @@ module ec2 {
   instance_count = 2
   tags           = "Dev"
 }
+*/
